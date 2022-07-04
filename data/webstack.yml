@@ -22,7 +22,7 @@
 - taxonomy: 科研办公
   icon: fas fa-flask fa-lg
   list:
-    - term: 生物信息
+    - term: VPS搭建
       links:
         - title: NCBI
           logo: ncbi.jpg
