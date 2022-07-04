@@ -10,7 +10,7 @@
     - title: 谷歌
       logo: qq邮箱.png
       url: https://google.com/ncr
-      description: 谷歌搜索不指定位置。
+      description: 谷歌搜索不获取位置。
     - title: GitHub
       logo: github.jpg
       url: https://github.com/
