@@ -7,10 +7,10 @@
       logo: 语雀.jpg
       url: https://weibo.com/
       description: 微博
-    - title: QQ 邮箱
+    - title: 谷歌
       logo: qq邮箱.png
-      url: http://mail.qq.com/
-      description: 腾讯 QQ 邮箱。
+      url: https://google.com/ncr
+      description: 谷歌搜索不指定位置。
     - title: GitHub
       logo: github.jpg
       url: https://github.com/
