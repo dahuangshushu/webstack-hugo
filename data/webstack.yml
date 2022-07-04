@@ -30,10 +30,10 @@
           description: National Center for Biotechnology Information.
     - term: 云服务器
       links:
-        - title: 阿里云
+        - title: scaleway
           logo: 阿里云.jpg
-          url: https://www.aliyun.com/
-          description: 上云就上阿里云。
+          url: https://scaleway.com/
+          description: 法鸡。
     - term: 办公学习
       links:
         - title: 有道词典
