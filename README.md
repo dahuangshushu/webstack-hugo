@@ -1,248 +1,182 @@
-<a href="https://gohugo.io/"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="565"></a>
+# 一个基于 Hugo 的静态响应式网址导航主题 
 
-A Fast and Flexible Static Site Generator built with love by [bep](https://github.com/bep), [spf13](https://spf13.com/) and [friends](https://github.com/gohugoio/hugo/graphs/contributors) in [Go][].
+本项目是基于**纯静态**的网址导航网站 [webstack.cc](https://github.com/WebStackPage/WebStackPage.github.io) 制作的 [Hugo](https://gohugo.io/) 主题，是一个基于 Hugo 的静态响应式网址导航主题，其中部分代码参考了以下几个开源项目：<br/>
 
-[Website](https://gohugo.io) |
-[Forum](https://discourse.gohugo.io) |
-[Documentation](https://gohugo.io/getting-started/) |
-[Installation Guide](https://gohugo.io/getting-started/installing/) |
-[Contribution Guide](CONTRIBUTING.md) |
-[Twitter](https://twitter.com/gohugoio)
+- [WebStackPage/WebStackPage.github.io](https://github.com/WebStackPage/WebStackPage.github.io)
+- [liutongxu/liutongxu.github.io](https://github.com/liutongxu/liutongxu.github.io)
+- [iplaycode/webstack-hugo](https://github.com/iplaycode/webstack-hugo)
 
-[![GoDoc](https://godoc.org/github.com/gohugoio/hugo?status.svg)](https://godoc.org/github.com/gohugoio/hugo)
-[![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
+## 主题开源地址
 
-## Overview
+- GitHub：[https://github.com/shenweiyan/WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo)
+- Gitee：[https://gitee.com/shenweiyan/WebStack-Hugo](https://gitee.com/shenweiyan/WebStack-Hugo)
 
-Hugo is a static HTML and CSS website generator written in [Go][].
-It is optimized for speed, ease of use, and configurability.
-Hugo takes a directory with content and templates and renders them into a full HTML website.
+## 主题演示地址
 
-Hugo relies on Markdown files with front matter for metadata, and you can run Hugo from any directory.
-This works well for shared hosts and other systems where you don’t have a privileged account.
+- [https://nav.bioitee.com](https://nav.bioitee.com)
+- [https://hao.bioitee.com](https://hao.bioitee.com)
 
-Hugo renders a typical website of moderate size in a fraction of a second.
-A good rule of thumb is that each piece of content renders in around 1 millisecond.
+## 特色功能
 
-Hugo is designed to work well for any kind of website including blogs, tumbles, and docs.
+这是 Hugo 版 WebStack 主题。可以借助 Github Pages 或者 Coding 直接托管部署，无需服务器。
 
-#### Supported Architectures
+总体说一下特点：
 
-Currently, we provide pre-built Hugo binaries for Windows, Linux, FreeBSD, NetBSD, DragonFly BSD, OpenBSD, macOS (Darwin), and [Android](https://gist.github.com/bep/a0d8a26cf6b4f8bc992729b8e50b480b) for x64, i386 and ARM architectures.
+- 采用了一直以来最喜欢的 hugo 部署方式，方便高效。
+- 主要的配置信息都集成到了 config.toml，一键完成各种自定义的配置。
+- 导航的各个信息都集成在 data/webstack.yml 文件中，方便后续增删改动。
+```
+- taxonomy: 科研办公
+  icon: fas fa-flask fa-lg
+  list:
+    - term: 生物信息
+      links:
+        - title: NCBI
+          logo: ncbi.jpg
+          url: https://www.ncbi.nlm.nih.gov/
+          description: National Center for Biotechnology Information.
+        - title: Bioconda
+          logo: bioconda.jpg
+          url: https://anaconda.org/bioconda/
+          description: "Bioconda :: Anaconda.org."
+    - term: 云服务器
+      links:
+        - title: 阿里云
+          logo: 阿里云.jpg
+          url: https://www.aliyun.com/
+          description: 上云就上阿里云。
+        - title: 腾讯云
+          logo: 腾讯云.jpg
+          url: https://cloud.tencent.com/
+          description: 产业智变，云启未来。
+```
+- 做了手机电脑自适应以及夜间模式。
+- 增加了搜索功能，以及下拉的热词选项（基于百度 API）。
+- 增加了一言、和风天气的 API。
 
-Hugo may also be compiled from source wherever the Go compiler tool chain can run, e.g. for other operating systems including Plan 9 and Solaris.
+## 使用说明
 
-**Complete documentation is available at [Hugo Documentation](https://gohugo.io/getting-started/).**
+这是一个开源的公益项目，你可以拿来制作自己的网址导航，也可以做与导航无关的网站。
 
-## Choose How to Install
+WebStack 有非常多的魔改版本，这是其中一个。如果你对本主题进行了一些个性化调整，欢迎来本项目中 issue 分享一下！
 
-If you want to use Hugo as your site generator, simply install the Hugo binaries.
-The Hugo binaries have no external dependencies.
 
-To contribute to the Hugo source code or documentation, you should [fork the Hugo GitHub project](https://github.com/gohugoio/hugo#fork-destination-box) and clone it to your local machine.
+## 安装说明
 
-Finally, you can install the Hugo source code with `go`, build the binaries yourself, and run Hugo that way.
-Building the binaries is an easy task for an experienced `go` getter.
+#### Windows 下安装部署
 
-### Install Hugo as Your Site Generator (Binary Install)
+本安装部署在 Windows 7 x64 上测试没问题，相关操作同样适用于 Windows 10，如有任何问题，欢迎留言或者微信与我联系。
 
-Use the [installation instructions in the Hugo documentation](https://gohugo.io/getting-started/installing/).
+##### 第一，下载 Windows 版本的 hugo
+下载链接：[https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)，在这里我们下载 [hugo_0.89.4_Windows-64bit.zip](https://github.com/gohugoio/hugo/releases/download/v0.89.4/hugo_0.89.4_Windows-64bit.zip)。
+![image](https://user-images.githubusercontent.com/26101369/176334175-e5332c6d-7c12-43e2-990d-f0b2770e87d2.png)
 
-### Build and Install the Binaries from Source (Advanced Install)
+##### 第二，解压
+我们把 [hugo_0.89.4_Windows-64bit.zip](https://github.com/gohugoio/hugo/releases/download/v0.89.4/hugo_0.89.4_Windows-64bit.zip) 下载到 F:\WebStack 目录下，然后解压到当前文件夹。
+![解压完成后，在该目录会多出 hugo.exe、LICENSE、README.md 三个文件](https://user-images.githubusercontent.com/26101369/176334230-085e5e7d-e5cb-4faa-92fd-89dfc9f44379.png)
 
-#### Prerequisite Tools
+##### 第三，看 hugo 安装是否安装成功
 
-* [Git](https://git-scm.com/)
-* [Go (we test it with the last 2 major versions; but note that Hugo 0.95.0 only builds with >= Go 1.18.)](https://golang.org/dl/)
+*Windows 命令行补全快捷提示：*
+- *Windows 命令运行窗口中可以使用 Tab 进行命令行补全，例如你当前目录下有一个 WebStack-Hugo 目录，你在命令行窗口中输入一个 w 后按下 Tab 键，命令行就会自动出现 WebStack-Hugo！*
+- *使用命令行补全，可以减少代码（或者文件名）的输入，方便快捷，又能减少错误！*
 
-#### Fetch from GitHub
+首先，在 Windows 中使用 Win+R 打开“**运行**”对话框，在对话框中输入“**cmd**”，点击确认。
+![image](https://user-images.githubusercontent.com/26101369/176334812-b5065ec6-9f34-435b-9f1b-e287b9858eed.png)
 
-To fetch and build the source from GitHub:
+其次，在 Windows 运行窗口，先切换盘符到 F 盘，然后进入 hugo 的解压缩目录（F:\WebStack），具体操作如下。
 
-```bash
-mkdir $HOME/src
-cd $HOME/src
-git clone https://github.com/gohugoio/hugo.git
-cd hugo
-go install
+1. 在光标处输入F:，然后按回车；
+
+![image](https://user-images.githubusercontent.com/26101369/176334878-6b6a0450-6b9c-4e07-b9a2-cc7946a99bb7.png)
+
+2. 我们就将盘符切换为 F 盘；
+
+![image](https://user-images.githubusercontent.com/26101369/176334938-04797759-868e-4d4c-83ea-632500c8c043.png)
+
+3. 接着输入 cd WebStack，回车，就进入了 F:\WebStack 目录；使用 ls 可以看到当前目录下的文件。
+
+![image](https://user-images.githubusercontent.com/26101369/176335087-183a144a-9153-4092-a118-69a333a16dd9.png)
+
+4. 最后，输入 hugo.exe version，回车，如图所示，则代表安装成功。
+
+![image](https://user-images.githubusercontent.com/26101369/176335123-b3f00646-b585-4ee7-b6b7-ae3ad958492e.png)
+
+##### 第四，下载 WebStack-Hugo
+
+浏览器打开 [https://github.com/shenweiyan/WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo)，点击 Code 下的 "Download ZIP"，把 WebStack-hugo-main.zip 下载到刚才 hugo 解压缩的目录（F:\WebStack）。
+
+![image](https://user-images.githubusercontent.com/26101369/176335212-8b862f50-26d7-4eee-9de7-9478d249d0c2.png)
+
+![image](https://user-images.githubusercontent.com/26101369/176335232-ddd8634f-2bc5-4370-96cb-67be4143e3b7.png)
+
+##### 第五，解压，重命名
+
+把 WebStack-Hugo-main.zip 解压到当前目录。
+
+![image](https://user-images.githubusercontent.com/26101369/176335276-ffb564bb-4260-41fe-a5ca-db5962a149b7.png)
+
+![image](https://user-images.githubusercontent.com/26101369/176335290-95d08d4e-9e96-4db4-a8be-4f6cbc1b5b4a.png)
+
+##### 第六，安装主题
+
+首先，进入 F:\WebStack 目录；
+
+然后，创建一个 themes 的文件夹；
+
+![image](https://user-images.githubusercontent.com/26101369/176335360-87bbd028-4ab7-4f3c-93a8-4d05549f3ff5.png)
+
+接着，把解压后的 WebStack-Hugo 整个文件夹移动到 themes 中。
+
+![image](https://user-images.githubusercontent.com/26101369/176335402-963246c5-c0d1-4073-b645-022df78b724b.png)
+
+第四，将 themes/WebStack-Hugo/exampleSite 目录下的所有文件复制到 hugo 站点根目录（即 F:\WebStack）。
+
+![image](https://user-images.githubusercontent.com/26101369/176335444-1574a2ca-d7ec-489d-90b9-8485d927171a.png)
+
+##### 第七，生成与预览站点
+
+在刚才已经打开的 Windows 命令运行窗口中，**使用下面的命令执行 hugo server，启动站点。**
+
+```shell
+hugo.exe server 
 ```
 
-**If you are a Windows user, substitute the `$HOME` environment variable above with `%USERPROFILE%`.**
+![image](https://user-images.githubusercontent.com/26101369/176335498-48293871-c621-4f52-a18f-80792b090d29.png)
 
-If you want to compile with Sass/SCSS support use `--tags extended` and make sure `CGO_ENABLED=1` is set in your go environment. If you don't want to have CGO enabled, you may use the following command to temporarily enable CGO only for hugo compilation:
+最后，在浏览器中打开 [http://127.0.0.1:1313/](http://127.0.0.1:1313/)，即可看到生成的站点。
 
-```bash
-CGO_ENABLED=1 go install --tags extended
+![image](https://user-images.githubusercontent.com/26101369/176335540-650e1fb1-f211-4f70-a3db-42efdd8345ac.png)
+
+#### Linux 下安装部署
+
+安装完本 WebStack-Hugo 主题后，将 exampleSite 目录下的文件复制到 hugo 站点根目录，根据需要把 config.toml 的一些信息改成自己的，导航的网址信息可通过 data 目录下 webstack.yml 修改。
+
+具体执行步骤如下：
+```shell
+$ mkdir /home/shenweiyan/mysite 
+$ cd /home/shenweiyan/mysite
+
+# 安装 WebStack-Hugo 主题
+$ mkdir themes
+$ cd themes
+$ git clone https://github.com/shenweiyan/WebStack-Hugo.git
+
+# 将 exampleSite 目录下的文件复制到 hugo 站点根目录
+$ cd /home/shenweiyan/mysite
+$ cp -r themes/WebStack-Hugo/exampleSite/* ./
+
+# 启动 hugo 站点
+$ hugo server 
+# 如果你知道你的公网 ip, 如下面的 132.76.230.31, 可以使用下面的方式执行 hugo server
+$ hugo server --baseUrl=132.76.230.31 --bind=0.0.0.0 
 ```
 
-## The Hugo Documentation
+更多 Windows/Linux 下详细的安装与使用说明，请参考文档：《[WebStack-Hugo | 一个简洁的静态导航主题](https://www.yuque.com/shenweiyan/cookbook/webstack-hugo) - [语雀](https://www.yuque.com/shenweiyan)》。
 
-The Hugo documentation now lives in its own repository, see https://github.com/gohugoio/hugoDocs. But we do keep a version of that documentation as a `git subtree` in this repository. To build the sub folder `/docs` as a Hugo site, you need to clone this repo:
 
-```bash
-git clone git@github.com:gohugoio/hugo.git
-```
-## Contributing to Hugo
+## 贡献者
 
-**Note  March 16th 2022:** We are currently very constrained on human resources to do code reviews, so we currently require any new Pull Requests to be limited to bug fixes closing an existing issue. Also, we have updated to Go 1.18, but we will currently not accept any generic rewrites, "interface{} to any" replacements and similar.
+感谢以下所有朋友对本主题所做出的贡献，特此致谢。
 
-For a complete guide to contributing to Hugo, see the [Contribution Guide](CONTRIBUTING.md).
-
-We welcome contributions to Hugo of any kind including documentation, themes,
-organization, tutorials, blog posts, bug reports, issues, feature requests,
-feature implementations, pull requests, answering questions on the forum,
-helping to manage issues, etc.
-
-The Hugo community and maintainers are [very active](https://github.com/gohugoio/hugo/pulse/monthly) and helpful, and the project benefits greatly from this activity.
-
-### Asking Support Questions
-
-We have an active [discussion forum](https://discourse.gohugo.io) where users and developers can ask questions.
-Please don't use the GitHub issue tracker to ask questions.
-
-### Reporting Issues
-
-If you believe you have found a defect in Hugo or its documentation, use
-the GitHub issue tracker to report the problem to the Hugo maintainers.
-If you're not sure if it's a bug or not, start by asking in the [discussion forum](https://discourse.gohugo.io).
-When reporting the issue, please provide the version of Hugo in use (`hugo version`).
-
-### Submitting Patches
-
-The Hugo project welcomes all contributors and contributions regardless of skill or experience level.
-If you are interested in helping with the project, we will help you with your contribution.
-Hugo is a very active project with many contributions happening daily.
-
-We want to create the best possible product for our users and the best contribution experience for our developers,
-we have a set of guidelines which ensure that all contributions are acceptable.
-The guidelines are not intended as a filter or barrier to participation.
-If you are unfamiliar with the contribution process, the Hugo team will help you and teach you how to bring your contribution in accordance with the guidelines.
-
-For a complete guide to contributing code to Hugo, see the [Contribution Guide](CONTRIBUTING.md).
-
-[Go]: https://golang.org/
-[Hugo Documentation]: https://gohugo.io/overview/introduction/
-
-## Dependencies
-
-Hugo stands on the shoulder of many great open source libraries.
-
-If you run `hugo env -v` you will get a complete and up to date list.
-
-In Hugo 0.100.1 that list is, in lexical order:
-
-```
-cloud.google.com/go/compute="v1.6.1"
-cloud.google.com/go/iam="v0.3.0"
-cloud.google.com/go/storage="v1.22.0"
-cloud.google.com/go="v0.101.0"
-github.com/Azure/azure-pipeline-go="v0.2.3"
-github.com/Azure/azure-storage-blob-go="v0.14.0"
-github.com/Azure/go-autorest/autorest/adal="v0.9.15"
-github.com/Azure/go-autorest/autorest/date="v0.3.0"
-github.com/Azure/go-autorest/autorest="v0.11.20"
-github.com/Azure/go-autorest/logger="v0.2.1"
-github.com/Azure/go-autorest/tracing="v0.6.0"
-github.com/BurntSushi/locker="v0.0.0-20171006230638-a6e239ea1c69"
-github.com/PuerkitoBio/purell="v1.1.1"
-github.com/PuerkitoBio/urlesc="v0.0.0-20170810143723-de5bf2ad4578"
-github.com/alecthomas/chroma="v0.10.0"
-github.com/armon/go-radix="v1.0.0"
-github.com/aws/aws-sdk-go-v2/config="v1.7.0"
-github.com/aws/aws-sdk-go-v2/credentials="v1.4.0"
-github.com/aws/aws-sdk-go-v2/feature/ec2/imds="v1.5.0"
-github.com/aws/aws-sdk-go-v2/internal/ini="v1.2.2"
-github.com/aws/aws-sdk-go-v2/service/internal/presigned-url="v1.3.0"
-github.com/aws/aws-sdk-go-v2/service/sso="v1.4.0"
-github.com/aws/aws-sdk-go-v2/service/sts="v1.7.0"
-github.com/aws/aws-sdk-go-v2="v1.9.0"
-github.com/aws/aws-sdk-go="v1.43.5"
-github.com/aws/smithy-go="v1.8.0"
-github.com/bep/clock="v0.3.0"
-github.com/bep/debounce="v1.2.0"
-github.com/bep/gitmap="v1.1.2"
-github.com/bep/goat="v0.5.0"
-github.com/bep/godartsass="v0.14.0"
-github.com/bep/golibsass="v1.1.0"
-github.com/bep/gowebp="v0.1.0"
-github.com/bep/overlayfs="v0.6.0"
-github.com/bep/tmc="v0.5.1"
-github.com/clbanning/mxj/v2="v2.5.5"
-github.com/cli/safeexec="v1.0.0"
-github.com/cpuguy83/go-md2man/v2="v2.0.1"
-github.com/disintegration/gift="v1.2.1"
-github.com/dlclark/regexp2="v1.4.0"
-github.com/dustin/go-humanize="v1.0.0"
-github.com/evanw/esbuild="v0.14.42"
-github.com/frankban/quicktest="v1.14.3"
-github.com/fsnotify/fsnotify="v1.5.4"
-github.com/getkin/kin-openapi="v0.94.0"
-github.com/ghodss/yaml="v1.0.0"
-github.com/go-openapi/jsonpointer="v0.19.5"
-github.com/go-openapi/swag="v0.19.5"
-github.com/gobuffalo/flect="v0.2.5"
-github.com/gobwas/glob="v0.2.3"
-github.com/gohugoio/go-i18n/v2="v2.1.3-0.20210430103248-4c28c89f8013"
-github.com/gohugoio/locales="v0.14.0"
-github.com/gohugoio/localescompressed="v1.0.1"
-github.com/golang-jwt/jwt/v4="v4.0.0"
-github.com/golang/groupcache="v0.0.0-20210331224755-41bb18bfe9da"
-github.com/golang/protobuf="v1.5.2"
-github.com/google/go-cmp="v0.5.8"
-github.com/google/uuid="v1.3.0"
-github.com/google/wire="v0.5.0"
-github.com/googleapis/gax-go/v2="v2.3.0"
-github.com/googleapis/go-type-adapters="v1.0.0"
-github.com/gorilla/websocket="v1.5.0"
-github.com/hairyhenderson/go-codeowners="v0.2.3-0.20201026200250-cdc7c0759690"
-github.com/inconshreveable/mousetrap="v1.0.0"
-github.com/jdkato/prose="v1.2.1"
-github.com/jmespath/go-jmespath="v0.4.0"
-github.com/kr/pretty="v0.3.0"
-github.com/kr/text="v0.2.0"
-github.com/kyokomi/emoji/v2="v2.2.9"
-github.com/mailru/easyjson="v0.0.0-20190626092158-b2ccc519800e"
-github.com/mattn/go-ieproxy="v0.0.1"
-github.com/mattn/go-isatty="v0.0.14"
-github.com/mattn/go-runewidth="v0.0.9"
-github.com/mitchellh/hashstructure="v1.1.0"
-github.com/mitchellh/mapstructure="v1.5.0"
-github.com/muesli/smartcrop="v0.3.0"
-github.com/niklasfasching/go-org="v1.6.2"
-github.com/olekukonko/tablewriter="v0.0.5"
-github.com/pelletier/go-toml/v2="v2.0.0-beta.7.0.20220408132554-2377ac4bc04c"
-github.com/rogpeppe/go-internal="v1.8.1"
-github.com/russross/blackfriday/v2="v2.1.0"
-github.com/rwcarlsen/goexif="v0.0.0-20190401172101-9e8deecbddbd"
-github.com/sanity-io/litter="v1.5.5"
-github.com/sass/libsass="3.6.5"
-github.com/spf13/afero="v1.8.2"
-github.com/spf13/cast="v1.5.0"
-github.com/spf13/cobra="v1.4.0"
-github.com/spf13/fsync="v0.9.0"
-github.com/spf13/jwalterweatherman="v1.1.0"
-github.com/spf13/pflag="v1.0.5"
-github.com/tdewolff/minify/v2="v2.11.5"
-github.com/tdewolff/parse/v2="v2.5.31"
-github.com/webmproject/libwebp="v1.2.0"
-github.com/yuin/goldmark="v1.4.12"
-go.opencensus.io="v0.23.0"
-go.uber.org/atomic="v1.9.0"
-gocloud.dev="v0.24.0"
-golang.org/x/crypto="v0.0.0-20211108221036-ceb1ce70b4fa"
-golang.org/x/image="v0.0.0-20211028202545-6944b10bf410"
-golang.org/x/net="v0.0.0-20220425223048-2871e0cb64e4"
-golang.org/x/oauth2="v0.0.0-20220411215720-9780585627b5"
-golang.org/x/sync="v0.0.0-20210220032951-036812b2e83c"
-golang.org/x/sys="v0.0.0-20220422013727-9388b58f7150"
-golang.org/x/text="v0.3.7"
-golang.org/x/tools="v0.1.10"
-golang.org/x/xerrors="v0.0.0-20220411194840-2f41105eb62f"
-google.golang.org/api="v0.76.0"
-google.golang.org/genproto="v0.0.0-20220426171045-31bebdecfb46"
-google.golang.org/grpc="v1.46.0"
-google.golang.org/protobuf="v1.28.0"
-gopkg.in/yaml.v2="v2.4.0"
-```
-
+[@yanbeiyinhanghang](https://github.com/yinhanghang)
